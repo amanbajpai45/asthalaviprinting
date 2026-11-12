@@ -1,0 +1,17 @@
+ASTHA & LAVI PRINTING PRESS — MENU UPDATE
+
+What changed:
+- Compact classic navy-and-gold navigation bar.
+- Important shortcuts remain visible: Home, Services, Gallery, Order, Contact and Login.
+- Remaining pages are organized in the More dropdown with small icons and category headings.
+- Arrange button still supports drag-and-drop reordering of the main menu links.
+- Responsive layout for desktop, tablet and mobile.
+- The same menu is used across 41 public HTML pages.
+- Existing Firebase configuration, AdSense snippet, page content and assets are retained.
+
+To publish:
+1. Extract this ZIP.
+2. Upload/replace all files and folders in the GitHub repository root.
+3. Commit changes.
+4. Hard refresh the site with Ctrl + F5.
+5. If menu order was saved earlier in the browser, use Arrange to reorder or clear that saved order from browser site data if necessary.
