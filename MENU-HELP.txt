@@ -1,0 +1,7 @@
+ASTHA & LAVI — CLASSIC DRAG & DROP MENU + 32 EXTRA PAGES
+
+Main menu me “All Pages 32+” par click/tap karein. 32 extra pages 4 groups me hain.
+“↕ Arrange” dabakar top-level menu links ko drag/drop se aage-peeche karein, phir “Done arranging” dabayein. Order isi browser me save hota hai.
+Mobile par All Pages accordion ki tarah khulta hai.
+
+32 additional HTML pages included. Existing Home/About/Services/Gallery/Order/Login and Firebase files retained.

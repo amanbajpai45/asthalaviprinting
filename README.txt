@@ -91,3 +91,22 @@ Work Assistance: Rajat Mishra — 8738893388
 Designer: Monaj Kanojiya — 9696549118
 Store Email: asthalavifdr@gmail.com
 Website Creator: Aman Bajpai — ab9738136@gmail.com
+
+LATEST UPDATE (12 Nov 2026)
+- Navigation icons have consistent sizing, alignment, and spacing on desktop and mobile.
+- Homepage hero slider now has five local image slides.
+- Homepage work showcase now has five local sample images.
+- Remote Unsplash image dependencies have been replaced with local sample assets to reduce missing-image problems when the website is hosted.
+- Sample images are illustrative previews. Replace them with your actual printing-work photos whenever available.
+
+
+Latest update: classic All Pages mega menu with 32 extra HTML pages. Drag & Drop rearranges the main navigation items; All Pages links are grouped in a responsive mega menu.
+
+
+LATEST CONTENT & BRAND UPDATE
+- Brand name standardized as Astha & Lavi Printing Press.
+- Homepage includes five project images with explanatory Hindi paragraphs. These are sample/showcase images; replace with real shop photos when available.
+- Brand slogan: हर विचार को मिले नई पहचान — डिज़ाइन से प्रिंट तक, भरोसे के साथ।
+- Floating WhatsApp menu provides direct contact to all three team members: Subhodh Bajpai (7985803315), Rajat Mishra (8738893388), and Monaj Kanojiya (9696549118).
+- Business Information page contains location, contact and quotation notes.
+- Verify all contact numbers, business details, pricing and AdSense approval status before publishing.
