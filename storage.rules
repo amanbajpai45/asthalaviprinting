@@ -1,0 +1,9 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn(){ return request.auth != null; }
+    function role(){ return firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role; }
+    function staff(){ return signedIn() && role() in ['admin','manager','staff']; }
+    match /gallery/{fileName} { allow read: if true; allow write: if staff() && request.resource.size < 8 * 1024 * 1024 && request.resource.contentType.matches('image/.*'); }
+  }
+}

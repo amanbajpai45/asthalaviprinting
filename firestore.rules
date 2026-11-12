@@ -1,0 +1,34 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn(){ return request.auth != null; }
+    function userDoc(){ return get(/databases/$(database)/documents/users/$(request.auth.uid)); }
+    function role(){ return signedIn() && userDoc().exists ? userDoc().data.role : 'none'; }
+    function admin(){ return role() == 'admin'; }
+    function manager(){ return role() in ['admin','manager']; }
+    function staff(){ return role() in ['admin','manager','staff']; }
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || admin());
+      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.role == 'customer';
+      allow update: if admin() || (signedIn() && request.auth.uid == uid && resource.data.role == 'customer' && request.resource.data.role == 'customer');
+      allow delete: if admin();
+    }
+    match /orders/{id} {
+      allow create: if signedIn() && request.resource.data.customerUid == request.auth.uid;
+      allow read: if signedIn() && (resource.data.customerUid == request.auth.uid || staff());
+      allow update: if staff() || (signedIn() && resource.data.customerUid == request.auth.uid && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['paymentStatus']) && request.resource.data.paymentStatus == 'Submitted - Verify'); allow delete: if admin();
+    }
+    match /quotes/{id} {
+      allow create: if signedIn() && request.resource.data.customerUid == request.auth.uid || staff();
+      allow read: if signedIn() && (resource.data.customerUid == request.auth.uid || resource.data.customerEmail == request.auth.token.email || staff());
+      allow update, delete: if manager();
+    }
+    match /rates/{id} { allow read: if true; allow write: if manager(); }
+    match /offers/{id} { allow read: if true; allow write: if manager(); }
+    match /gallery/{id} { allow read: if true; allow write: if staff(); }
+    match /staff/{id} { allow read: if staff(); allow write: if admin(); }
+    match /payments/{id} { allow create: if signedIn() && request.resource.data.customerUid == request.auth.uid; allow read: if signedIn() && (resource.data.customerUid == request.auth.uid || staff()); allow update: if manager(); allow delete: if admin(); }
+    match /activity/{id} { allow read: if manager(); allow create: if staff() || (signedIn() && request.resource.data.by == request.auth.uid); }
+    match /{document=**} { allow read, write: if false; }
+  }
+}
