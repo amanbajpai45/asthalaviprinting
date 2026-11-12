@@ -1,5 +1,5 @@
 // WhatsApp order form for Astha & Lavi Printing Press
-const BUSINESS_WHATSAPP = "919696549118";
+const BUSINESS_WHATSAPP = "917985803315";
 const form = document.getElementById("orderForm");
 if (form) {
   form.addEventListener("submit", event => {
